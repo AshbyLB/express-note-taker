@@ -113,6 +113,7 @@ const handleRenderSaveBtn = () => {
     hide(saveNoteBtn);
   } else {
     show(saveNoteBtn);
+    console.log("this worked");
   }
 };
 
