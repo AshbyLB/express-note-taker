@@ -66,6 +66,13 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
+app.delete('/api/notes/:id', function(req, res) {
+  userNotes.splice(req.params.id, 1);
+  
+  fs.writeFile(`./db/db.json`, JSON.stringify(userNotes), (err) =>
+      err ? console.error(err) : console.log(`Note has been deleted`));
+      return res.json(userNotes);
+});
 
 
 app.listen(PORT, () =>
