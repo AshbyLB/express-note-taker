@@ -37,7 +37,7 @@ app.post('/api/notes', (req, res) => {
     userNotes.push(newNote)
     const notesString = JSON.stringify(userNotes, null, 2);
 
-    fs.writeFile(`./db/db.json`, notesString, (err) =>
+    fs.writeFile('./db/db.json', notesString, (err) =>
       err ? console.error(err) : console.log(`Note for ${newNote.title} has been written to JSON file`));
 
     const response = {
